@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 20 10:38:29 2022
+Spyder Editor
 
-@author: bhtyr
+This is a temporary script file.
 """
-
+# kütüphaneler
 import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.impute import SimpleImputer
 
-imputer = SimpleImputer(missing_values = np.nan, strategy='mean')
+#kodlar
+#veri yükleme
 
-dataSet = pd.read_csv("DataSets/dataset.csv")
+veriSeti = pd.read_csv("../DataSets/bilkav_dataset.csv")
 
-print(dataSet)
+print(veriSeti)
+print(veriSeti.iloc[:,1:4])
+print(veriSeti[(np.abs(veriSeti["kilo"])<35)])
+
+#veri ön işleme
+
+
+
+
