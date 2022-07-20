@@ -18,8 +18,8 @@ from sklearn.linear_model import LinearRegression
 #2.1 veri yükleme
 veriSeti = pd.read_csv('../DataSets/bilkav_tahmin_dataset.csv')
 
-aylar = veriSeti.iloc[:,0:1]
-satis = veriSeti.iloc[:,1]
+aylar = veriSeti[['Aylar']]
+satis = veriSeti[['Satislar']]
 
 #2.6 verilerin eğitim ve test için bölünmesi
 #from sklearn.model_selection import train_test_split
@@ -44,7 +44,15 @@ tahmin = lr.predict(x_test)
 x_train = x_train.sort_index()
 y_train = y_train.sort_index()
 
-plt.plot(x_train,y_train)
+plt.title("Aylara Göre Satış")
+plt.ylabel("Satışlar")
+plt.xlabel("Aylar")
 
+x_train = x_train.sort_index()
+x_test = x_test.sort_index()
+y_train = y_train.sort_index()
+
+plt.plot(x_train,y_train, linewidth=1.0)
+plt.plot(x_test,tahmin)
 
 
