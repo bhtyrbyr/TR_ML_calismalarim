@@ -44,15 +44,14 @@ tahmin = lr.predict(x_test)
 x_train = x_train.sort_index()
 y_train = y_train.sort_index()
 
+
+x_test = x_test.sort_index()
+
+
 plt.title("Aylara Göre Satış")
 plt.ylabel("Satışlar")
 plt.xlabel("Aylar")
-
-x_train = x_train.sort_index()
-x_test = x_test.sort_index()
-y_train = y_train.sort_index()
-
-plt.plot(x_train,y_train, linewidth=1.0)
-plt.plot(x_test,tahmin)
+plt.plot(x_train.iloc[:,0], y_train.iloc[:,0], linewidth=1.0)
+plt.plot(x_test.iloc[:,0], lr.predict(x_test), linewidth=1.0)
 
 
